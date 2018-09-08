@@ -27,8 +27,10 @@ Since storing this Inverted Index in a raw form can take up huge amounts of spac
 compressed the terms by simply writing to a file with an underscore separation between each term.
 The postings list for each term is compressed by storing the delta document ID, rather than storing each document ID.
 This saves space especially for terms found across many documents. 
+
   For instance, if a list has two docIDs: 100000, 100001
   we would instead store the docIDs as  : 100000, 1
+  
 If we were storing this in a .txt file, then we saved 5 bytes by compressing one term.
 
 After implementing a simple version of these two compressions, the total space of the inverted index is ~45MB! More than
